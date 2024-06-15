@@ -4,7 +4,7 @@ const modal = document.getElementById('winner-modal');
 const closeButton = document.getElementById('close-button');
 const winnerMessage = document.getElementById('winner-message');
 
-let currentPlayer = 'S';
+let currentPlayer = 'X';
 let board = ['', '', '', '', '', '', '', '', ''];
 let gameActive = true;
 
@@ -52,7 +52,7 @@ function handleCellClick(event) {
         showModal();
         gameActive = false;
     } else {
-        currentPlayer = currentPlayer === 'S' ? 'A' : 'S';
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     }
 }
 
@@ -66,11 +66,11 @@ function checkWinner() {
 
 function resetGame() {
     board = ['', '', '', '', '', '', '', '', ''];
-    currentPlayer = 'S';
+    currentPlayer = 'X';
     gameActive = true;
     cells.forEach(cell => {
         cell.textContent = '';
-        cell.classList.remove('S', 'A');
+        cell.classList.remove('X', 'O');
     });
     closeModal();
 }
